@@ -8,14 +8,17 @@ function SimpleForm() {
             name: "",
             email: "",
             password: ""
+        },
+        onSubmit: values =>{
+            console.log('Form Data', formik.values)
         }
     })
 
-    console.log('Form Values', formik.values)
+    // console.log('Form Values', formik.values)
 
     return (
         <div>
-            <form>
+            <form onSubmit={formik.handleSubmit}>
                 <label htmlFor='name'>Name</label>
                 <input type='text' id='name' name='name' onChange={formik.handleChange} value={formik.values.name} />
 
@@ -25,7 +28,7 @@ function SimpleForm() {
                 <label htmlFor='password'>Password</label>
                 <input type='text' id='password' name='password' onChange={formik.handleChange} value={formik.values.password} />
 
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )
